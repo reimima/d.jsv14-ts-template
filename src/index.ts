@@ -3,8 +3,6 @@ import { config } from 'dotenv';
 
 config();
 
-const client = new Client({ intents: ['Guilds', 'GuildIntegrations'] });
+const client = new Client({ intents: ['Guilds'] });
 
-client.once('ready', () => console.log('Bot has beed ready!'));
-
-client.login(process.env['DISCORD_TOKEN']);
+client.login(process.env['DISCORD_TOKEN']).catch(e => console.error(e));
